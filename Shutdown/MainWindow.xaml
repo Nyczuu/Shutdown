@@ -1,0 +1,48 @@
+﻿<Window x:Class="Shutdown.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Shutdowner" Height="245" Width="305">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="215" VerticalAlignment="Top" Width="297" Margin="0,0,0,-1">
+            <TabItem Header="Dashboard">
+                <Grid>
+                    <Label x:Name="TitleLabel" Content="Turn off PC at:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="HoursLabel" Content="Hours:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="55"/>
+                    <TextBox x:Name="HoursTextBox" IsReadOnly="True" TextAlignment="Center" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" Margin="70,41,0,0"/>
+                    <Button x:Name="HoursAddButton" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="119,41,0,0" Click="HoursAddButton_Click" Height="23"/>
+                    <Button x:Name="HoursRemoveButton" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="144,41,0,0" Click="HoursRemoveButton_Click" Height="23"/>
+                    <Label x:Name="MinutesLabel" Content="Minutes:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,72,0,0" Width="55"/>
+                    <TextBox x:Name="MinutesTextBox" IsReadOnly="True" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="70,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49"/>
+                    <Button x:Name="MinutesAddButton" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="119,72,0,0" Click="MinutesAddButton_Click" Height="23"/>
+                    <Button x:Name="MinutesRemoveButton" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="144,72,0,0" Click="MinutesRemoveButton_Click" Height="23"/>
+                    <CheckBox x:Name="CloseAfterConfirmCheckBox" IsChecked="True" Content="Close after confirm" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,156,0,0"/>
+                    <Button x:Name="ConfirmButton"  Content="Confirm" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="194,151,0,0" Click="ConfirmButton_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Settings">
+                <Grid>
+                    <Label Content="Hours initial value:" Width="160" Height="30" Margin="10,10,114,152" />
+                    <TextBox x:Name="HoursInitialTextBox" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Height="23" Margin="175,10,0,0" TextAlignment="Center" TextWrapping="Wrap"/>
+                    <Button x:Name="HoursInitialAddButton" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" Margin="224,10,0,0" Click="HoursInitialAddButton_Click"/>
+                    <Button x:Name="HoursInitialRemoveButton" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" Margin="249,10,0,0" Click="HoursInitialRemoveButton_Click"/>
+                    <Label Content="Hours jump size:" Width="160" Height="30" Margin="10,45,109,112"/>
+                    <TextBox x:Name="HoursJumpSizeTextBox" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Height="23" Margin="175,45,0,0" TextAlignment="Center" TextWrapping="Wrap"/>
+                    <Button x:Name="HoursJumpSizeAddButton" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" Margin="224,45,0,0" Click="HoursJumpSizeAddButton_Click"/>
+                    <Button x:Name="HoursJumpSizeRemoveButton" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" Margin="249,45,0,0" Click="HoursJumpSizeRemoveButton_Click"/>
+                    <Label Content="Minutes initial value:" Width="160" Height="30" Margin="10,80,109,77"/>
+                    <TextBox x:Name="MinutesInitialTextBox" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Height="23" Margin="175,80,0,0" TextAlignment="Center" TextWrapping="Wrap"/>
+                    <Button x:Name="MinutesInitialAddButton" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" Margin="224,80,0,0" Click="MinutesInitialAddButton_Click"/>
+                    <Button x:Name="MinutesInitialRemoveButton" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" Margin="249,80,0,0" Click="MinutesInitialRemoveButton_Click"/>
+                    <Label Content="Minutes jump size:" Width="160" Height="30" Margin="10,115,109,42" />
+                    <TextBox x:Name="MinutesJumpSizeTextBox" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Height="23" Margin="175,115,0,0" TextAlignment="Center" TextWrapping="Wrap"/>
+                    <Button x:Name="MinutesJumpSizeAddButton" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" Margin="224,115,0,0" Click="MinutesJumpSizeAddButton_Click"/>
+                    <Button x:Name="MinutesJumpSizeRemoveButton" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" Margin="249,115,0,0" Click="MinutesJumpSizeRemoveButton_Click"/>
+                    <Button x:Name="SettingsSaveButton" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="199,150,0,0" Click="SettingsSaveButton_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
