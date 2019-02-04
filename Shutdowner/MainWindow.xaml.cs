@@ -77,12 +77,13 @@ namespace Shutdowner
 
         private void ShutdownCancel()
         {
-            //RunProcess("shutdown", "/a");
+            RunProcess("shutdown", "-a");
         }
 
         private void ShutdownExcute()
         {
-            RunProcess("shutdown.exe", $"-s -t {(_hours * 3600) + (_minutes * 60)}");
+            RunProcess("shutdown", "-a");
+            RunProcess("shutdown", $"-s -t {(_hours * 3600) + (_minutes * 60)}");
 
             if (CloseAfterConfirmCheckBox.IsChecked == true)
                 Application.Current.Shutdown();
@@ -90,7 +91,10 @@ namespace Shutdowner
 
         private void RunProcess(string command, string arguments)
         {
-            Process.Start(command,arguments);
+            var process = new ProcessStartInfo(command,arguments);
+            process.CreateNoWindow = true;
+            process.UseShellExecute = false;
+            Process.Start(process);
         }
 
         #endregion
