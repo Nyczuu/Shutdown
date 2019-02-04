@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Shutdown
+namespace Shutdowner
 {
     public partial class App : Application
     {

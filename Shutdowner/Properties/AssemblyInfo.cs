@@ -7,12 +7,12 @@ using System.Windows;
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
-[assembly: AssemblyTitle("Shutdown")]
+[assembly: AssemblyTitle("Shutdowner")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Shutdown")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyProduct("Shutdowner")]
+[assembly: AssemblyCopyright("Copyright ©  2019 Mateusz Nycz")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,9 +1,8 @@
-﻿using Shutdown.Configuration;
-using System.Configuration;
+﻿using Shutdowner.Properties;
 using System.Diagnostics;
 using System.Windows;
 
-namespace Shutdown
+namespace Shutdowner
 {
     public partial class MainWindow : Window
     {
@@ -13,11 +12,11 @@ namespace Shutdown
         private int _minutesInitial;
         private int _hoursJumpSize;
         private int _minutesJumpSize;
-        private readonly SettingsConfigurationSection _config;
+        private Settings _config;
 
         public MainWindow()
         {
-            _config = SettingsConfigurationSection.Get();
+            _config = Settings.Default;
             InitializeComponent();
             InitializeDashboard();
             InitializeSettings();
@@ -54,7 +53,7 @@ namespace Shutdown
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             ShutdownCancel();
-            ShutdownRun();
+            ShutdownExcute();
         }
 
         private void InitializeDashboard()
@@ -75,23 +74,23 @@ namespace Shutdown
             HoursTextBox.Text = _hours.ToString();
             MinutesTextBox.Text = _minutes.ToString();
         }
-        
+
         private void ShutdownCancel()
         {
-            Process process = new Process();
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.Arguments = "shutdown -a";
-            process.Start();
+            //RunProcess("shutdown", "/a");
         }
 
-        private void ShutdownRun()
+        private void ShutdownExcute()
         {
-            Process process = new Process();
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.Arguments = $"shutdown -s -t {_hours * 3600 * _minutes * 60 }";
-            process.Start();
+            RunProcess("shutdown.exe", $"-s -t {(_hours * 3600) + (_minutes * 60)}");
+
+            if (CloseAfterConfirmCheckBox.IsChecked == true)
+                Application.Current.Shutdown();
+        }
+
+        private void RunProcess(string command, string arguments)
+        {
+            Process.Start(command,arguments);
         }
 
         #endregion
@@ -152,7 +151,7 @@ namespace Shutdown
             _config.HoursJumpSize = _hoursJumpSize;
             _config.MinutesInitialValue = _minutesInitial;
             _config.MinutesJumpSize = _minutesJumpSize;
-            SettingsConfigurationSection.Save(_hoursInitial,_hoursJumpSize,_minutesInitial,_minutesJumpSize);
+            _config.Save();
 
             ResetToSavedSettings();
             ValidateAndApplySettingsInputs();
