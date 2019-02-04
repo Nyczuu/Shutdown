@@ -1,4 +1,4 @@
-# Shutdown
+# Shutdowner
 Small C# program used to shutdown PC at specified period of time
 
 Program uses standard windows CMD command shutdown with parameters -s -t and calculated hours and minutes selected by user
